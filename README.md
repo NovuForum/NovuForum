@@ -5,6 +5,8 @@ This software was developed out of the fact that there are no really god and ope
 #### Required
 * PHP 5.6+
 * (MySQL?)
+
+
 #### Optional, But recommended
 * Ubuntu
 * Apache2
@@ -13,7 +15,7 @@ This software was developed out of the fact that there are no really god and ope
 ## Installation
 1. Download the latest version.
 2. Create a folder and unzip the latest version in there.
-3. Do A: Follow the optional steps below OR B: Point the DocumentRoot to the "/path/to/website/public_html" directory
+3. Do A: Follow the optional steps below OR B: Point the DocumentRoot to the "/path/to/website/forums/public_html" directory
 4. Profit? Profit!
 
 
@@ -27,8 +29,11 @@ This software was developed out of the fact that there are no really god and ope
 
 ## Code of Conduct
 (This is mostly for us coders)
+
 No Tabs, "Tabs" should be 2 spaces.
+
 Languages: HTML, CSS, JS, PHP
+
 Editor: Preferably Atom and Github Windows.
 
 Branches:
