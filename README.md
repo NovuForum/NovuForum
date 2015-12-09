@@ -1,6 +1,24 @@
 # Unnamed-Forum-Software
-(This is an Unnamed Forum Software.)
 This software was developed out of the fact that there are no really god and open forum softwares, where you easily can do some things.
+
+## Prerequisites
+#### Required
+* PHP 5.6+
+* (MySQL?)
+#### Optional, But recommended
+* Ubuntu
+* Apache2
+
+
+## Installation
+1. Download the latest version.
+2. Create a folder and unzip the latest version in there.
+3. Do A: Follow the optional steps below OR B: Point the DocumentRoot to the "/path/to/website/public_html" directory
+4. Profit? Profit!
+
+
+* (Optional: Copy the site.apache2 file to /etc/apache2/sites-enabled/)
+* (Optional: Restart Apache2)
 
 ## Coders
 [Joarc](https://www.joarc.se/): Coded websites for many years, just not any projects for public use.
@@ -20,8 +38,6 @@ Branches:
 
 Additional branches may exist? Maybe for docs, and public website?
 
-
-
 ## Planned Features
 - [ ] Simple Design
 - [ ] Simple Modules Feature ("Plugins")
@@ -33,4 +49,4 @@ Additional branches may exist? Maybe for docs, and public website?
 - [ ] More Features? Suggest them!
 
 ## License
-We use MIT License.
+We use MIT License. [Read it HERE](https://github.com/Joarc-SE/Unnamed-Forum-Software/blob/master/LICENSE)
