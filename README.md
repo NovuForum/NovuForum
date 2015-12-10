@@ -40,6 +40,7 @@ __Version Control System:__ Github & Github Windows
 ```
 forums/
   includes/
+    pagehandler.php
     forms/
     functions/
       config.php
@@ -59,12 +60,12 @@ forums/
       global.css
       forums/ #Per page CSS
         page.css
+      custom/ #Override things in global.css
+        global.css
+        page.css
     js/
       bootstrap.js
       jquery.js
-    custom/ #Custom CSS and JS
-      css/ #CSS
-        page.css
 ```
 
 ###### docs
@@ -84,14 +85,15 @@ Branches:
 * docs: Documentation website,
 
 ## Planned Features
-- [ ] Simple Design
-- [ ] Simple Modules Feature ("Plugins")
-- [ ] Simple CSS Modifier
-- [ ] Simple Manager
-- [ ] Correct way to manager Moderators, Admins and Others
-- [ ] Easy way to integrate own pages, websites and other features
-- [ ] Simple API for integration to own websites
-- [ ] More Features? Suggest them!
+- Simple Design
+- Simple Modules Feature ("Plugins")
+- Simple CSS Modifier
+- Simple Manager
+- Correct way to manager Moderators, Admins and Others
+- Easy way to integrate own pages, websites and other features
+- Simple API for integration to own websites
+- More Features? Suggest them!
+- ~~Name~~
 
 ## License
 We use MIT License. [Read it HERE](https://github.com/Joarc-SE/Unnamed-Forum-Software/blob/master/LICENSE)
