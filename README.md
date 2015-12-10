@@ -5,12 +5,10 @@ This software was developed out of the fact that there are no really god and ope
 #### Required
 * PHP 5.6+
 * (MySQL?)
-
+* mod_rewrite (Apache2)
 
 #### Optional, But recommended
 * Ubuntu
-* Apache2
-
 
 ## Installation
 1. Download the latest version.
@@ -19,8 +17,7 @@ This software was developed out of the fact that there are no really god and ope
 4. Profit? Profit!
 
 
-* (Optional: Copy the site.apache2 file to /etc/apache2/sites-enabled/)
-* (Optional: Restart Apache2)
+* (Optional: Copy the site.apache2 file to /etc/apache2/sites-enabled/ & restart apache2)
 
 ## Coders
 [Joarc](https://www.joarc.se/): Coded websites for many years, just not any projects for public use.
@@ -41,8 +38,6 @@ Branches:
 * latest: Latest release, download this.
 * public: Public website, promote project.
 * docs: Documentation website,
-
-Additional branches may exist? Maybe for docs, and public website?
 
 ## Planned Features
 - [ ] Simple Design

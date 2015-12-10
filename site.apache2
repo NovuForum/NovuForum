@@ -1,0 +1,4 @@
+<VirtualHost *:80>
+  ServerName web.site.name
+  DocumentRoot /var/www/forum/public_html
+</VirtualHost>
