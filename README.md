@@ -29,9 +29,53 @@ This software was developed out of the fact that there are no really god and ope
 
 No Tabs, "Tabs" should be 2 spaces.
 
-Languages: HTML, CSS, JS, PHP
+__Languages:__ HTML, CSS, JS, PHP
 
-Editor: Preferably Atom and Github Windows.
+__Editor:__ Preferably Atom
+
+__Version Control System:__ Github & Github Windows
+
+#### Directories
+###### master, latest
+```
+forums/
+  includes/
+    forms/
+    functions/
+      config.php
+      mysql.php
+      functions.php
+      funcs.php
+    libraries/
+      parsedown/
+  public_html/
+    index.php
+    img/
+      favicon.png
+      uploaded/ #Uploaded custom images
+        uploaded_imgs.png
+    css/
+      bootstrap.css
+      global.css
+      forums/ #Per page CSS
+        page.css
+    js/
+      bootstrap.js
+      jquery.js
+    custom/ #Custom CSS and JS
+      css/ #CSS
+        page.css
+```
+
+###### docs
+```
+TBD
+```
+
+###### public
+```
+TBD
+```
 
 Branches:
 * master: all code is here, push changes here.
