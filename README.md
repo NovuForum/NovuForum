@@ -37,9 +37,10 @@ Languages: HTML, CSS, JS, PHP
 Editor: Preferably Atom and Github Windows.
 
 Branches:
-> master: all code is here, push changes here
-
-> latest: Latest release, download this.
+* master: all code is here, push changes here.
+* latest: Latest release, download this.
+* public: Public website, promote project.
+* docs: Documentation website,
 
 Additional branches may exist? Maybe for docs, and public website?
 
