@@ -39,11 +39,13 @@ __Version Control System:__ Github & Github Windows
 ###### master, latest
 ```
 forums/
+  plugins/
+    "PLUGINTUTORIAL"
   includes/
+    config.php
     pagehandler.php
     forms/
     functions/
-      config.php
       mysql.php
       functions.php
       funcs.php
@@ -78,7 +80,7 @@ TBD
 TBD
 ```
 
-Branches:
+###### Branches:
 * master: all code is here, push changes here.
 * latest: Latest release, download this.
 * public: Public website, promote project.
