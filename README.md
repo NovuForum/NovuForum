@@ -98,4 +98,4 @@ TBD
 - ~~Name~~
 
 ## License
-We use MIT License. [Read it HERE](https://github.com/Joarc-SE/Unnamed-Forum-Software/blob/master/LICENSE)
+We use MIT License. [Read it HERE](https://github.com/Joarc-SE/NovuForum/blob/master/LICENSE)
