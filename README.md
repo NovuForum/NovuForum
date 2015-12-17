@@ -1,10 +1,10 @@
-# Unnamed-Forum-Software
+# NovuForum
 This software was developed out of the fact that there are no really good and open forum softwares, where you easily can do some things.
 
 ## Prerequisites
 #### Required
 * PHP 5.6+
-* (MySQL?)
+* a MySQL Database + php5_json
 * mod_rewrite (Apache2)
 
 #### Optional, But recommended
