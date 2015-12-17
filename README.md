@@ -1,5 +1,5 @@
 # Unnamed-Forum-Software
-This software was developed out of the fact that there are no really god and open forum softwares, where you easily can do some things.
+This software was developed out of the fact that there are no really good and open forum softwares, where you easily can do some things.
 
 ## Prerequisites
 #### Required
