@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('');
+?>
 <!DOCTYPE html>
 <html lang="en_US">
   <head>
@@ -9,7 +13,7 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
-    <p>Hello World!</p>
+    <p class="text-center">Hello World!</p>
     <!-- JS -->
     <script src="/js/bootstrap.js"></script>
     <!--<script src="/js/smartforumsview.js"></script> My Cool Test Thingy (TODO) -->
