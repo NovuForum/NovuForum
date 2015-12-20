@@ -1,10 +1,7 @@
 <?php
   function connect() {
-    $host = "dhd.joarc.ovh";
-    $dbname = "matkollen";
-    $username = "matkollen";
-    $password = "matkollen";
-    $db = new PDO('mysql:host='.$host.';dbname='.$dbname, $username, $password);
+    global $mysql;
+    $db = new PDO('mysql:host='.$mysql["host"].';dbname='.$mysql["daba"], $mysql["user"], $mysql["pass"]);
     return $db;
   }
 

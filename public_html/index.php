@@ -1,6 +1,10 @@
 <?php
 session_start();
-include('');
+if (!file_exists("../includes/config.php")) {
+  include('../includes/setup.php');
+} else {
+  include('../includes/default.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en_US">
@@ -11,10 +15,14 @@ include('');
     <!-- CSS -->
     <link href="/css/global.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
+<?php foreach(scandir("css/forums/") as $value) { if ($value == "." || $value == "..") continue; ?>
+    <link href="/css/forums/<?= $value ?>" rel="stylesheet">
+<?php } ?>
   </head>
   <body>
-    <p class="text-center">Hello World!</p>
+    <?php include("../includes/pages/".$PAGE.".php"); ?>
     <!-- JS -->
+    <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
     <!--<script src="/js/smartforumsview.js"></script> My Cool Test Thingy (TODO) -->
   </body>

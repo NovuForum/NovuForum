@@ -9,21 +9,9 @@ function grs($length = 3) {
     return $randomString;
 }
 
-function resturangExists($resturang) {
-  $data = executeResult("SELECT `linkid` FROM `resturanger` WHERE `linkid`=?", array($resturang));;
-  if ($data[0] == $resturang) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function getResturanger() {
-  return executeResults("SELECT * FROM `resturanger`",array());
-}
-
-function getResturang($resturang) {
-  return executeResult("SELECT * FROM `resturanger` WHERE linkid=?",array($resturang));
+function smail($to, $subject, $message) {
+  $headers = "Content-Type: text/html;charset=UTF-8\r\nX-Mailer:PHP/".phpversion();
+  mail($to, $subject, $message, $headers);
 }
 
 function userExists($username) {
@@ -62,45 +50,7 @@ function getUserId($username) {
   return executeResult($sql, $args)[0];
 }
 
-function addUser($username, $password) {
-  $sql = "INSERT INTO `users` (`username`, `password`) VALUES (?,?);";
-  $args = array($username, password_hash($password, PASSWORD_BCRYPT));
-  execute($sql, $args);
-}
-
-function isAdmin($username) {
-  $data = executeResult("SELECT `admin` FROM `users` WHERE `username`=?", array($username));;
-  if ($data[0]) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function addPost($title, $content, $linkid, $user) {
-  $pub = date('Y:m:d H:i:s');
-  $user = getUserId($user);
-  $sql = "INSERT INTO `blogg`(`title`, `linkid`, `content`, `writer`, `published`) VALUES (?,?,?,?,?);";
-  $args = array($title, $linkid, $content, $user, $pub);
-  execute($sql, $args);
-}
-
-function getPostsRows() {
-  $sql = "SELECT * FROM `blogg`";
-  $args = array();
-  return count(executeResults($sql, $args));
-}
-
-function getPages() {
-  $rows = getPostsRows();
-  $pages = 0;
-  while ($rows > 0 ) {
-    $rows = $rows - 10;
-    $pages++;
-  }
-  return $pages;
-}
-
+// TODO: REUSE THIS CODE
 function getPosts($page) {
   if ($page == -1) {
     $sql = "SELECT * FROM `blogg` ORDER BY id DESC";
@@ -122,14 +72,4 @@ function getPosts($page) {
   } else {
     return array("title" => "Failed getting posts", "linkid" => "failed", "description" => "Failed getting posts, please review the code or contact joarc@joarc.se");
   }
-}
-
-function getPost($linkid) {
-  $sql = "SELECT * FROM `blogg` WHERE linkid=?";
-  $args = array($linkid);
-  return executeResult($sql, $args);
-}
-
-function postExists($linkid) {
-  return true;
 }

@@ -42,8 +42,11 @@ forums/
   plugins/
     "PLUGINTUTORIAL"
   includes/
+    setup.php
+    default.php
     config.php
     pagehandler.php
+    pages/
     forms/
     functions/
       mysql.php
