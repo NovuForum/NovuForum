@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!file_exists("../includes/config.php")) {
+if (!file_exists("../includes/config.php") || $_SESSION['setup']) {
   include('../includes/setup.php');
 } else {
   include('../includes/default.php');
