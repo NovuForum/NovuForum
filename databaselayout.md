@@ -5,10 +5,10 @@ All tables have "nf_" prefix
 | ----------- | -----------   | ------------------- |
 | id          | double        | autoincrement       |
 | username    | varchar 20    | null                |
-| email       | varchar 100   | null                |
-| password    | varchar 200   | null                |
-| firstname   | varchar 100   | null                |
-| lastname    | varchar 100   | null                |
+| email       | varchar 50    | null                |
+| password    | varchar 100   | null                |
+| firstname   | varchar 30    | null                |
+| lastname    | varchar 30    | null                |
 | gender      | int           | 0                   |
 | birthday    | date          | null                |
 | status      | varchar 140   | null                |
@@ -30,11 +30,6 @@ All tables have "nf_" prefix
 | description | text          | null                |
 | color       | varchar 8     | #FFFFFF             |
 | permissions | text          | []                  |
-
-| :  | type length | attributes/default  |
-| ------------- | ----------- | ------------------- |
-| id            | double      | autoincrement       |
-|
 
 | posts:    | type length   | attributes/default  |
 | --------- | ------------- | ------------------- |
@@ -60,5 +55,6 @@ All tables have "nf_" prefix
 | ------------ | ------------- | ------------------ |
 | id           | double        | autoincrement      |
 | sitename     | varchar 255   | null               |
+| sitedesc     | text          | null               |
 | canregister  | boolean       | 1(true)            |
 | defaultgroup | double        | 0                  |

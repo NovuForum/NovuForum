@@ -5,24 +5,43 @@
     return $db;
   }
 
+  if (!$_SESSION['setup'])
+    $db = connect();
+
   function execute($sql, $args) {
-      $db = connect();
-      $query = $db->prepare($sql);
-      $query->execute($args);
+      //$db = connect();
+      global $db;
+      try {
+        $query = $db->prepare($sql);
+        $query->execute($args);
+      } catch (PDOException $ex) {
+        return $ex->getMessage();
+      }
+      return null;
   }
 
   function executeResult($sql, $args) {
-    $db = connect();
-    $query = $db->prepare($sql);
-    $query->execute($args);
-    $response = $query->fetch();
+    //$db = connect();
+    global $db;
+    try {
+      $query = $db->prepare($sql);
+      $query->execute($args);
+      $response = $query->fetch();
+    } catch (PDOException $ex) {
+      $response = $ex->getMessage();
+    }
     return $response;
   }
 
   function executeResults($sql, $args) {
-    $db = connect();
-    $query = $db->prepare($sql);
-    $query->execute($args);
-    $response = $query->fetchAll();
+    //$db = connect();
+    global $db;
+    try {
+      $query = $db->prepare($sql);
+      $query->execute($args);
+      $response = $query->fetchAll();
+    } catch (PDOException $ex) {
+      $response = $ex->getMessage();
+    }
     return $response;
   }

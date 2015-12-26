@@ -20,7 +20,7 @@ if (!file_exists("../includes/config.php") || $_SESSION['setup']) {
 <?php } ?>
   </head>
   <body>
-    <?php include("../includes/pages/".$PAGE.".php"); ?>
+    <?php include($PAGE); ?>
     <!-- JS -->
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>

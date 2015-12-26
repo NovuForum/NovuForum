@@ -1,4 +1,10 @@
 <VirtualHost *:80>
-  ServerName web.site.name
-  DocumentRoot /var/www/forum/public_html
+  ServerName web.site.name                  # CHANGE ME!
+  DocumentRoot /var/www/forum/public_html   # CHANGE ME!
+  <IfModule mod_rewrite>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+  </IfModule>
 </VirtualHost>

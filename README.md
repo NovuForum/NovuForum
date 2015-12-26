@@ -13,11 +13,8 @@ This software was developed out of the fact that there are no really good and op
 ## Installation
 1. Download the latest version.
 2. Create a folder and unzip the latest version in there.
-3. Do A: Follow the optional steps below OR B: Point the DocumentRoot to the "/path/to/website/forums/public_html" directory
-4. Profit? Profit!
-
-
-* (Optional: Copy the site.apache2 file to /etc/apache2/sites-enabled/ & restart apache2)
+3. Make sure that the folder has correct permissions so that NovuForum can read/write files inside that folder!
+5. Profit? Profit!
 
 ## Coders
 [Joarc](https://www.joarc.se/): Coded websites for many years, just not any projects for public use.
