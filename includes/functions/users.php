@@ -9,28 +9,27 @@ function userExists($username) {
 }
 
 function passwordCorrect($username, $password) {
-  $data = executeResult("SELECT `password` FROM `nf_users` WHERE `username`=?", array($username));;
-  if (password_verify($password, $data[0])) {
-    return true;
-  } else {
-    return false;
-  }
+  return password_verify($password, executeResult("SELECT `password` FROM `nf_users` WHERE `username`=?", array($username)[0]);
 }
 
 function getUsers() {
-  $sql = "SELECT * FROM `nf_users`";
-  $args = array();
-  return executeResults($sql, $args);
+  return executeResults("SELECT * FROM `nf_users`", array());
 }
 
-function getUser($id) {
-  $sql = "SELECT * FROM `nf_users` WHERE id=?";
-  $args = array($id);
-  return executeResult($sql, $args);
+function getUserById($id) {
+  return executeResult("SELECT * FROM `nf_users` WHERE `id`=?", array($id));
 }
 
-function getUserId($username) {
-  $sql = "SELECT `id` FROM `nf_users` WHERE username=?";
-  $args = array($username);
-  return executeResult($sql, $args)[0];
+function getUserIdByName($username) {
+  return executeResult("SELECT `id` FROM `nf_users` WHERE `username`=?", array($username))[0];
 }
+
+function addUser() {
+
+}
+
+function delUser() {
+
+}
+
+function
