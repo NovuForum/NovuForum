@@ -34,7 +34,7 @@ All tables have "nf_" prefix
 | posts:    | type length   | attributes/default  |
 | --------- | ------------- | ------------------- |
 | forumid   | double        | null                |
-| topicid   | double        | null                |
+| topicid   | double        | autoincrement       |
 | postid    | double        | null                |
 | title     | varchar 100   | null                |
 | content   | text          | null                |

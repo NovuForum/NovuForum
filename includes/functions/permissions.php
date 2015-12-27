@@ -71,7 +71,7 @@ function removeGroupPermissions($groupid, $permissions) {
 }
 
 // Permission Management
-$globalpermlist = array();
+$globalpermlist = array("permissions.");
 function listAllAvailablePermissions() {
   global $globalpermlist;
   return $globalpermlist;
@@ -94,6 +94,7 @@ function loadPermissions($userid) {
 }
 
 function requirePermission($permission, $userpermissions = $_SESSION['logged_in_permissions']) {
+  if (in_array("permissions.all", $userpermissions['user'])) return true;
   if (in_array($permission, $userpermissions['user'])) {
     return true;
   } else {

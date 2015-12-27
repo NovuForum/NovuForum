@@ -1,15 +1,10 @@
 <?php
 function userExists($username) {
-  $data = executeResult("SELECT `username` FROM `nf_users` WHERE `username`=?", array($username));;
-  if ($data[0] == $username) {
-    return true;
-  } else {
-    return false;
-  }
+  return $username == executeResult("SELECT `username` FROM `nf_users` WHERE `username`=?", array($username))[0];
 }
 
 function passwordCorrect($username, $password) {
-  return password_verify($password, executeResult("SELECT `password` FROM `nf_users` WHERE `username`=?", array($username)[0]);
+  return password_verify($password, executeResult("SELECT `password` FROM `nf_users` WHERE `username`=?", array($username))[0]);
 }
 
 function getUsers() {
