@@ -15,7 +15,7 @@ function listUsersInGroup($groupid) {
 }
 
 function listGroups() {
-
+  return executeResults("SELECT * FROM `nf_groups`", array());
 }
 
 function getGroupIdByName($name) {
