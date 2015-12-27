@@ -14,40 +14,15 @@ function smail($to, $subject, $message) {
   mail($to, $subject, $message, $headers);
 }
 
-function userExists($username) {
-  $data = executeResult("SELECT `username` FROM `users` WHERE `username`=?", array($username));;
-  if ($data[0] == $username) {
-    return true;
-  } else {
-    return false;
+function getdir($dir) {
+  $data = array();
+  $i = 0;
+  foreach (scandir($dir) as $key => $value) {
+    if ($value == ".." || $value == ".") continue;
+    $data[$i] = $value;
+    $i++;
   }
-}
-
-function passwordCorrect($username, $password) {
-  $data = executeResult("SELECT `password` FROM `users` WHERE `username`=?", array($username));;
-  if (password_verify($password, $data[0])) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function getUsers() {
-  $sql = "SELECT * FROM `users`";
-  $args = array();
-  return executeResults($sql, $args);
-}
-
-function getUser($id) {
-  $sql = "SELECT * FROM `users` WHERE id=?";
-  $args = array($id);
-  return executeResult($sql, $args);
-}
-
-function getUserId($username) {
-  $sql = "SELECT `id` FROM `users` WHERE username=?";
-  $args = array($username);
-  return executeResult($sql, $args)[0];
+  return $data;
 }
 
 // TODO: REUSE THIS CODE

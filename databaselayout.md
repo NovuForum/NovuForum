@@ -12,11 +12,11 @@ All tables have "nf_" prefix
 | gender      | int           | 0                   |
 | birthday    | date          | null                |
 | status      | varchar 140   | null                |
-| location    | varchar 255   | null                |
-| occupation  | varchar 255   | null                |
+| location    | varchar 100   | null                |
+| occupation  | varchar 100   | null                |
 | website     | varchar 255   | null                |
 | about       | text          | null                |
-| avatarurl   | varchar 255   | null                |
+| avatar      | varchar 255   | null                |
 | twitter     | varchar 15    | null                |
 | postcount   | double        | 0                   |
 | groups      | text          | []                  |
@@ -36,20 +36,21 @@ All tables have "nf_" prefix
 | forumid   | double        | null                |
 | topicid   | double        | null                |
 | postid    | double        | null                |
-| title     | varchar 255   | null                |
+| title     | varchar 100   | null                |
 | content   | text          | null                |
 | date      | datetime      | current_time        |
 | edited    | boolean       | 0(false)            |
 | ownerid   | double        | null                |
-| locked    | boolean       | null                |
+| locked    | boolean       | 0(false)            |
 | rating    | text          | null                |
 
 | forums:   | type length   | attributes/default  |
 | --------- | ------------- | ------------------- |
 | id        | double        | autoincrement       |
 | type      | int           | 0                   |
-| title     | varchar 200   | null                |
+| title     | varchar 100   | null                |
 | content   | varchar 255   | null                |
+| url       | varchar 255   | null                |
 
 | data:        | type length   | attributes/default |
 | ------------ | ------------- | ------------------ |
@@ -58,3 +59,10 @@ All tables have "nf_" prefix
 | sitedesc     | text          | null               |
 | canregister  | boolean       | 1(true)            |
 | defaultgroup | double        | 0                  |
+
+| plugins:      | type length   | attributes/default  |
+| ------------- | ------------- | ------------------- |
+| id            | double        | autoincrement       |
+| defaultpage   | varchar 255   | null                |
+| enabledpages  | text          | null                |
+|
