@@ -13,6 +13,7 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
     "CREATE TABLE `nf_posts` ( `forumid` DOUBLE NOT NULL , `topicid` DOUBLE NOT NULL , `postid` DOUBLE NOT NULL , `title` VARCHAR(100) NOT NULL , `content` TEXT NOT NULL , `date` DATETIME NOT NULL , `edited` BOOLEAN NOT NULL DEFAULT FALSE , `ownerid` DOUBLE NOT NULL , `locked` BOOLEAN NOT NULL DEFAULT FALSE , `rating` TEXT NOT NULL ) ENGINE = InnoDB;",
     "CREATE TABLE `nf_forums` ( `id` DOUBLE NOT NULL AUTO_INCREMENT , `type` INT NOT NULL DEFAULT '0' , `title` VARCHAR(100) NOT NULL , `content` VARCHAR(255) NOT NULL , `url` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;",
     "CREATE TABLE `nf_data` ( `id` DOUBLE NOT NULL AUTO_INCREMENT , `sitename` VARCHAR(255) NOT NULL , `sitedesc` TEXT NOT NULL , `canregister` BOOLEAN NOT NULL DEFAULT TRUE , `defaultgroup` DOUBLE NOT NULL DEFAULT '0' , PRIMARY KEY (`id`)) ENGINE = InnoDB;",
+    "",
     "INSERT INTO `nf_groups`(`name`, `title`, `description`, `color`, `permissions`) VALUES ('admin', 'Admin', 'Default Admin Group', '#ab0013', '{\"permissions.all\"}');",
     "INSERT INTO `nf_users` (`username`, `email`, `password`) VALUES (?,?,?);",
     "INSERT INTO `nf_data` (`sitename`, `sitedesc`, `canregister`, `defaultgroup`) VALUES (?,?,0,0);"
@@ -20,6 +21,7 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
 
   // And arguments...
   $args = array(
+    array(),
     array(),
     array(),
     array(),
