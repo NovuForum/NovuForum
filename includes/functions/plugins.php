@@ -19,3 +19,7 @@ function getCustomPage($URL) {
   }
   return false;
 }
+
+function getActiveTheme() {
+  return executeResult("SELECT `value` FROM `nf_data` WHERE `name`=?", array("activetheme"))[0];
+}

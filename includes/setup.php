@@ -51,9 +51,7 @@ function createConfig($mysql) {
 
 if ($_GET['mysql'] == 1) {
   try {
-    $mysql = $_SESSION['setup_mysqldata'];
-    //var_dump($mysql);
-    $db = new PDO('mysql:host='.$mysql["host"].';dbname='.$mysql["daba"], $mysql["user"], $mysql["pass"], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $db = new PDO('mysql:host='.$_SESSION['setup_mysqldata']["host"].';dbname='.$_SESSION['setup_mysqldata']["daba"], $_SESSION['setup_mysqldata']["user"], $_SESSION['setup_mysqldata']["pass"], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   } catch(PDOException $ex) {
     $_SESSION['setup_mysql'] = true;
     $_SESSION['setup_mysql_error'] = $ex->getMessage();
@@ -135,8 +133,7 @@ if (isset($_POST['sitename'], $_POST['sitedesc'], $_POST['adminuser'], $_POST['a
     </div>
   </div>
 </div>
-<?php } else if ($_GET['final'] == 1) { ?>
-<?php
+<?php } else if ($_GET['final'] == 1) {
 if (isset($_POST['setup']) && $_POST['setup'] == "complete") {
   session_destroy();
   header('Location: /');

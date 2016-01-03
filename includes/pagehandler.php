@@ -5,12 +5,7 @@ $URL_SPLIT = explode('/', $URL);
 
 if (!$_SESSION['setup']) {
   if ($URL == "") {
-    $defaultpage = getDefaultPage();
-    if ($defaultpage == false) {
-      $PAGE = "../includes/pages/default.php";
-    } else {
-      $PAGE = "../plugins/".$defaultpage."/default.php";
-    }
+
   } else if ($URL == "login") {
     $PAGE = "../includes/pages/login.php";
   } else if ($URL == "logout") {
