@@ -98,6 +98,7 @@ function requirePermission($permission, $userpermissions = $_SESSION['logged_in_
   if (in_array($permission, $userpermissions['user'])) {
     return true;
   } else {
+    if (is_null($userpermissions['groups'])) return false;
     foreach ($userpermissions['groups'] as $key => $value)
       if (in_array($permission, $value))
         return true;

@@ -6,6 +6,8 @@ if ($_SESSION['setup']) {
 } else {
   include('../includes/default.php');
 }
+
+if (!$textonly) {
 ?>
 <!DOCTYPE html>
 <html lang="en_US">
@@ -13,11 +15,11 @@ if ($_SESSION['setup']) {
     <meta charset="utf-8">
     <link href="/img/favicon.png" rel="shortcut icon">
     <title>NovuForum</title>
-    <!-- CSS -->
+    <!-- GLOBAL CSS -->
     <link href="/css/global.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
-<?php foreach(scandir("css/forums/") as $value) { if ($value == "." || $value == "..") continue; ?>
-    <link href="/css/forums/<?= $value ?>" rel="stylesheet">
+<?php foreach(scandir("../themes/$theme/css/") as $value) { ?>
+    <style><?= file_get_contents("../themes/$theme/css/$value") ?></style>
 <?php } ?>
   </head>
   <body>
@@ -28,3 +30,4 @@ if ($_SESSION['setup']) {
     <!--<script src="/js/smartforumsview.js"></script> My Cool Test Thingy (TODO) -->
   </body>
 </html>
+<?php } >

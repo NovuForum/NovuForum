@@ -45,3 +45,12 @@
     }
     return $response;
   }
+
+
+  function getDataValue($key) {
+    return executeResult("SELECT `value` FROM `nf_data` WHERE `name`=?", array($key))[0];
+  }
+
+  function setDataValue($key, $value) {
+    return execute("UPDATE `nf_data` SET `value`=? WHERE `name`=?", array($value, $key));
+  }
