@@ -1,8 +1,5 @@
 <?php
 
-$URL = $_SERVER['QUERY_STRING'];
-$URL_SPLIT = explode('/', $URL);
-
 if (!$_SESSION['setup']) {
   if ($URL == "") {
     if ($loginrequired && $_SESSION['logged_in'] == false) {

@@ -26,5 +26,3 @@ function addUser() {
 function delUser() {
 
 }
-
-function

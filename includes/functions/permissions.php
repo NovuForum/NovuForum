@@ -26,7 +26,7 @@ function removeUserPermissions($userid, $permissions) {
     $userpermissions = json_decode(executeResult("SELECT `permissions` FROM `nf_users` WHERE `id`=?", array($userid))[0], true);
     foreach($userpermissions as $key => $value) {
       if (in_array($value, $permissions)) {
-        unset($userpermissions[$key])
+        unset($userpermissions[$key]);
       }
     }
     execute("UPDATE `nf_users` SET `permissions`=? WHERE `id`=?", array(json_encode($userpermissions), $userid));
@@ -61,7 +61,7 @@ function removeGroupPermissions($groupid, $permissions) {
     $grouppermissions = json_decode(executeResult("SELECT `permissions` FROM `nf_groups` WHERE `id`=?", array($groupid))[0], true);
     foreach($grouppermissions as $key => $value) {
       if (in_array($value, $permissions)) {
-        unset($grouppermissions[$key])
+        unset($grouppermissions[$key]);
       }
     }
     execute("UPDATE `nf_groups` SET `permissions`=? WHERE `id`=?", array(json_encode($grouppermissions), $groupid));
@@ -93,7 +93,13 @@ function loadPermissions($userid) {
   return $permissions;
 }
 
-function requirePermission($permission, $userpermissions = $_SESSION['logged_in_permissions']) {
+if (isset($_SESSION['logged_in_permissions'])) {
+  $userpermissions = $_SESSION['logged_in_permissions'];
+} else {
+  $userpermissions = array("permissions.none");
+}
+function requirePermission($permission) {
+  global $userpermissions;
   if (in_array("permissions.all", $userpermissions['user'])) return true;
   if (in_array($permission, $userpermissions['user'])) {
     return true;
