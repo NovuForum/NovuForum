@@ -1,6 +1,4 @@
 <?php
-$textonly = false;
-$theme = null;
 function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
   // Prepare SQL Statements...
   $sql = array(
@@ -13,6 +11,7 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
     "INSERT INTO `nf_groups`(`name`, `title`, `description`, `color`, `permissions`) VALUES ('admin', 'Admin', 'Default Admin Group', '#ab0013', '{\"permissions.all\"}');",
     "INSERT INTO `nf_users` (`username`, `email`, `password`) VALUES (?,?,?);",
     "INSERT INTO `nf_site` (`sitename`, `sitedesc`, `canregister`, `defaultgroup`) VALUES (?,?,0,0);",
+    "INSERT INTO `nf_data` (`name`, `value`) VALUES (?,?); ",
     "INSERT INTO `nf_data` (`name`, `value`) VALUES (?,?); "
   );
 
@@ -27,7 +26,8 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
     array(),
     array($adminuser, $adminemail, $adminpass),
     array($sitename, $sitedesc),
-    array("activetheme", "default")
+    array("activetheme", "default"),
+    array("loginrequired", "false")
   );
 
   // And then execute everything.
@@ -61,15 +61,18 @@ if ($_GET['mysql'] == 1) {
     header('Location: /');
     exit();
   }
-if (isset($_POST['sitename'], $_POST['sitedesc'], $_POST['adminuser'], $_POST['adminemail'], $_POST['adminpass'], $_POST['adminpassconf'])) {
-  if (strlen($_POST['sitename']) < 100) {
-    if ($_POST['adminpass'] == $_POST['adminpassconf']) {
-      $password = password_hash($_POST['adminpass'], PASSWORD_BCRYPT);
-      populateDB($_POST['sitename'], $_POST['sitedesc'], $_POST['adminuser'], $_POST['adminemail'], $password);
-      header('Location: /?final=1');
+
+  require("functions/mysql.php");
+
+  if (isset($_POST['sitename'], $_POST['sitedesc'], $_POST['adminuser'], $_POST['adminemail'], $_POST['adminpass'], $_POST['adminpassconf'])) {
+    if (strlen($_POST['sitename']) < 100) {
+      if ($_POST['adminpass'] == $_POST['adminpassconf']) {
+        $password = password_hash($_POST['adminpass'], PASSWORD_BCRYPT);
+        populateDB($_POST['sitename'], $_POST['sitedesc'], $_POST['adminuser'], $_POST['adminemail'], $password);
+        header('Location: /?final=1');
+      }
     }
   }
-}
 ?>
 <div class="container">
   <h1 class="page-header text-center">Setup <s>---</s> NovuForum</h1>

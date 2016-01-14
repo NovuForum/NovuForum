@@ -11,7 +11,7 @@ if (!$_SESSION['setup']) {
     }
     $PAGE = "../themes/$theme/start.phtml";
   } else if ($URL_SPLIT[0] == "json") {
-    
+
   } else if ($URL == "login") {
     $PAGE = "../includes/pages/login.php";
   } else if ($URL == "logout") {
@@ -47,7 +47,7 @@ if (!$_SESSION['setup']) {
       $PAGE = "../themes/$theme/$URL.phtml";
     }
     if (is_null($PAGE)) {
-      $PAGE = "../includes/pages/404.php":
+      $PAGE = "../includes/pages/404.php";
       http_response_code(404);
     }
   }

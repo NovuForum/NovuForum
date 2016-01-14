@@ -1,8 +1,11 @@
 <?php
 session_start();
 if (!file_exists("../includes/config.php")) $_SESSION['setup'] = true;
+if (is_null($_SESSION['setup'])) $_SESSION['setup'] = false;
 if ($_SESSION['setup']) {
-  include('../includes/setup.php');
+  //include('../includes/setup.php');
+  $PAGE = "../includes/setup.php";
+  $textonly = false;
 } else {
   include('../includes/default.php');
 }
