@@ -34,7 +34,7 @@ if (isset($theme)) {
 ?>
   </head>
   <body>
-    <?php include($PAGE); ?>
+    <?= parseVariables(file_get_contents($PAGE)); ?>
     <!-- JS -->
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>

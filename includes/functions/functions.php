@@ -30,5 +30,5 @@ function dir_exists($path) {
 }
 
 function parseVariables($data) {
-  return str_replace("<NFFORUMSLIST>", array(), $data);
+  return str_replace("<NFFORUMLIST>", file_get_contents("../pages/forumlist.parser.php"), $data);
 }
