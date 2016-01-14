@@ -25,6 +25,10 @@ function getdir($dir) {
   return $data;
 }
 
+function dir_exists($path) {
+  return file_exists($path);
+}
+
 // TODO: REUSE THIS CODE
 function getPosts($page) {
   if ($page == -1) {

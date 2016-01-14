@@ -11,7 +11,7 @@ foreach (scandir("functions") as $value) {
 }
 
 // Global Variables
-$textonly = ($URL_SPLIT[0] == "json") ? "true":"false";
+$textonly = ($URL_SPLIT[0] == "json") ? true : false ;
 $loginrequired = (bool)getDataValue("loginrequired");
 
 // Dynamic Variables

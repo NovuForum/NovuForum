@@ -5,13 +5,13 @@ $URL_SPLIT = explode('/', $URL);
 
 if (!$_SESSION['setup']) {
   if ($URL == "") {
-    if ($loginrequired) {
+    if ($loginrequired && $_SESSION['logged_in'] == false) {
       header('Location: /login');
       exit();
     }
     $PAGE = "../themes/$theme/start.phtml";
   } else if ($URL_SPLIT[0] == "json") {
-
+    
   } else if ($URL == "login") {
     $PAGE = "../includes/pages/login.php";
   } else if ($URL == "logout") {
@@ -44,7 +44,7 @@ if (!$_SESSION['setup']) {
       }
     }*/
     if (file_exists("../themes/$theme/$URL")) {
-      
+      $PAGE = "../themes/$theme/$URL.phtml";
     }
     if (is_null($PAGE)) {
       $PAGE = "../includes/pages/404.php":

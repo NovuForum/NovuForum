@@ -18,9 +18,17 @@ if (!$textonly) {
     <!-- GLOBAL CSS -->
     <link href="/css/global.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
-<?php foreach(scandir("../themes/$theme/css/") as $value) { ?>
+<?php
+if (isset($theme)) {
+  if (dir_exists("../themes/$theme/") && dir_exists("../themes/$theme/css/")) {
+    foreach (scandir("../themes/$theme/css/") as $value) {
+?>
     <style><?= file_get_contents("../themes/$theme/css/$value") ?></style>
-<?php } ?>
+<?php
+    }
+  }
+}
+?>
   </head>
   <body>
     <?php include($PAGE); ?>
@@ -30,4 +38,4 @@ if (!$textonly) {
     <!--<script src="/js/smartforumsview.js"></script> My Cool Test Thingy (TODO) -->
   </body>
 </html>
-<?php } >
+<?php } ?>

@@ -1,5 +1,6 @@
 <?php
-
+$textonly = false;
+$theme = null;
 function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
   // Prepare SQL Statements...
   $sql = array(
@@ -11,7 +12,8 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
     "CREATE TABLE `nf_data`  ( `id` DOUBLE NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;",
     "INSERT INTO `nf_groups`(`name`, `title`, `description`, `color`, `permissions`) VALUES ('admin', 'Admin', 'Default Admin Group', '#ab0013', '{\"permissions.all\"}');",
     "INSERT INTO `nf_users` (`username`, `email`, `password`) VALUES (?,?,?);",
-    "INSERT INTO `nf_site` (`sitename`, `sitedesc`, `canregister`, `defaultgroup`) VALUES (?,?,0,0);"
+    "INSERT INTO `nf_site` (`sitename`, `sitedesc`, `canregister`, `defaultgroup`) VALUES (?,?,0,0);",
+    "INSERT INTO `nf_data` (`name`, `value`) VALUES (?,?); "
   );
 
   // And arguments...
@@ -24,11 +26,12 @@ function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
     array(),
     array(),
     array($adminuser, $adminemail, $adminpass),
-    array($sitename, $sitedesc)
+    array($sitename, $sitedesc),
+    array("activetheme", "default")
   );
 
   // And then execute everything.
-  for ($i = 0; $i <= count($sql)-1; $i++) {
+  for ($i = 0; $i < count($sql); $i++) {
     $exec = execute($sql[$i], $args[$i]);
     if ($exec != null) {
       echo $exec;
