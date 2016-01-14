@@ -52,7 +52,7 @@ All tables have "nf_" prefix
 | content   | varchar 255   | null                |
 | url       | varchar 255   | null                |
 
-| data:        | type length   | attributes/default |
+| site:        | type length   | attributes/default |
 | ------------ | ------------- | ------------------ |
 | id           | double        | autoincrement      |
 | sitename     | varchar 255   | null               |
@@ -60,9 +60,8 @@ All tables have "nf_" prefix
 | canregister  | boolean       | 1(true)            |
 | defaultgroup | double        | 0                  |
 
-| plugins:      | type length   | attributes/default  |
-| ------------- | ------------- | ------------------- |
-| id            | double        | autoincrement       |
-| defaultpage   | varchar 255   | null                |
-| enabledpages  | text          | null                |
-|
+| data: | type length | attributes/default  |
+| ----- | ------------| ------------------- |
+| id    | double      | autoincrement       |
+| name  | varchar 255 | null                |
+| value | text        | null                |
