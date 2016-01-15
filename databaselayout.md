@@ -51,6 +51,7 @@ All tables have "nf_" prefix
 | title     | varchar 100   | null                |
 | content   | varchar 255   | null                |
 | url       | varchar 255   | null                |
+| settings  | text          | null                |
 
 | site:        | type length   | attributes/default |
 | ------------ | ------------- | ------------------ |

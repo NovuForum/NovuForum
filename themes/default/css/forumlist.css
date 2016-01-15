@@ -1,0 +1,10 @@
+.forumlist {
+
+}
+.forumlist td {
+  padding:10px;
+}
+.forum-name {
+  font-weight:bold;
+  color:black;
+}

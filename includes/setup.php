@@ -1,3 +1,9 @@
+<style>
+.panel-fullpage {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+</style>
 <?php
 function populateDB($sitename, $sitedesc, $adminuser, $adminemail, $adminpass) {
   // Prepare SQL Statements...
