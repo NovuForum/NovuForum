@@ -8,3 +8,6 @@
   font-weight:bold;
   color:black;
 }
+table {
+  border:1px solid black;
+}

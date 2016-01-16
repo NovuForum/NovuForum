@@ -1,14 +1,21 @@
 <?php
-
+$PAGE = "";
 if (!$_SESSION['setup']) {
   if ($URL == "") {
-    if ($loginrequired && $_SESSION['logged_in'] == false) {
+    if ($loginrequired && $_SESSION['logged_in'] == false && false) {
       header('Location: /login');
       exit();
     }
     $PAGE = "../themes/$theme/start.phtml";
   } else if ($URL_SPLIT[0] == "json") {
-
+    if ($URL_SPLIT[1] == "forumslist" || $URL_SPLIT[1] == "forumlist" || $URL_SPLIT[1] == "forumslist.json" || $URL_SPLIT[1] == "forumlist.json") {
+      $forums = executeResults("SELECT * FROM `nf_forums`", array());
+      $output = array();
+      foreach($forums as $key => $value) {
+        $output[$key] = removeNumbers($value);
+      }
+      echo json_encode($output);
+    }
   } else if ($URL == "login") {
     $PAGE = "../includes/pages/login.php";
   } else if ($URL == "logout") {
@@ -43,7 +50,7 @@ if (!$_SESSION['setup']) {
     if (file_exists("../themes/$theme/$URL")) {
       $PAGE = "../themes/$theme/$URL.phtml";
     }
-    if (is_null($PAGE)) {
+    if ($PAGE == "") {
       $PAGE = "../includes/pages/404.php";
       http_response_code(404);
     }

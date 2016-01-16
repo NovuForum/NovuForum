@@ -9,7 +9,7 @@ if ($_SESSION['setup']) {
 } else {
   include('../includes/default.php');
 }
-
+if ($textonly) header('Content-Type: application/json');
 if (!$textonly) {
 ?>
 <!DOCTYPE html>
@@ -24,17 +24,20 @@ if (!$textonly) {
 <?php
 if (isset($theme)) {
   if (dir_exists("../themes/$theme/") && dir_exists("../themes/$theme/css/")) {
-    foreach (scandir("../themes/$theme/css/") as $value) {
+    foreach (getdir("../themes/$theme/css/") as $value) {
 ?>
-    <style><?= file_get_contents("../themes/$theme/css/$value") ?></style>
+    <style>
+<?= file_get_contents("../themes/$theme/css/$value") ?>
+    </style>
 <?php
     }
   }
 }
 ?>
+<!-- <?= $PAGE ?> | <?= getcwd() ?> | <?= $URL ?>-->
   </head>
   <body>
-    <?= parseVariables(file_get_contents($PAGE)); ?>
+<?= parseVariables(file_get_contents($PAGE)); ?>
     <!-- JS -->
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>

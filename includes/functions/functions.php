@@ -29,6 +29,15 @@ function dir_exists($path) {
   return file_exists($path);
 }
 
+function removeNumbers($data) {
+  $newdata = array();
+  foreach($data as $key => $value) {
+    if (is_numeric($key)) continue;
+    $newdata[$key] = $value;
+  }
+  return $newdata;
+}
+
 function parseVariables($data) {
-  return str_replace("<NFFORUMLIST>", file_get_contents("../pages/forumlist.parser.php"), $data);
+  return str_replace("<FORUMLIST>", file_get_contents("../includes/pages/forumlist.parser.php"), $data);
 }

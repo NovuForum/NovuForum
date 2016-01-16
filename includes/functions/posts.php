@@ -32,7 +32,7 @@ function countTopicsByForumId($id) {
   $i = 0;
   $previd = -1;
   foreach (executeResults("SELECT * FROM `nf_posts` WHERE `forumid`=?", array($id)) as $value) {
-    if ($value['topicid'] == $previd): continue; else: $previd = $value['topicid'] endif;
+    if ($value['topicid'] == $previd): continue; else: $previd = $value['topicid']; endif;
     $i++;
   }
   return $i;

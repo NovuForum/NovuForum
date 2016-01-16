@@ -15,6 +15,8 @@ $object['type'] = object type
 5 = ?
 
 */
+
+$forumslist = executeResults("SELECT * FROM `nf_forums`", array());
 ?>
 <table class="forumlist">
   <tr>
