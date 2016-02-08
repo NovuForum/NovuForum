@@ -39,5 +39,14 @@ function removeNumbers($data) {
 }
 
 function parseVariables($data) {
-  return str_replace("<FORUMLIST>", file_get_contents("../includes/pages/forumlist.parser.php"), $data);
+  if (strpos($data, "<FORUMLIST>") !== false) {
+    include("../includes/parser/forumlist.parser.php");
+    $data = str_replace("<FORUMLIST>", $parser, $data);
+    $_SESSION['debug_parser_b'] = "tru3";
+    $_SESSION['debug_parser'] = $data;
+    return $data;
+  } else {
+    $_SESSION['debug_parser_b'] = "fals3";
+    return $data;
+  }
 }

@@ -35,6 +35,9 @@ if (isset($theme)) {
 }
 ?>
 <!-- <?= $PAGE ?> | <?= getcwd() ?> | <?= $URL ?>-->
+<!-- <?= $parser ?> -->
+<!-- <?= $_SESSION['debug_parser'] ?> -->
+<!-- <?= $_SESSION['debug_parser_b'] ?>-->
   </head>
   <body>
 <?= parseVariables(file_get_contents($PAGE)); ?>

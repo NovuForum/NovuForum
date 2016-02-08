@@ -47,5 +47,5 @@ function countPostsByForumId($id) {
 }
 
 function getLatestPostByForumId($id) {
-  return executeResult("SELECT `title` FROM `nf_posts` WHERE `forumid`=? ORDER BY DESC LIMIT 1")[0];
+  return executeResult("SELECT `title` FROM `nf_posts` WHERE `forumid`=? ORDER BY DESC LIMIT 1", array($id))[0];
 }

@@ -21,3 +21,9 @@ include("pagehandler.php");
 
 // Libraries
 include("libraries/Parsedown.php");
+
+// Parser Variables
+foreach (scandir("../includes/parser") as $value) {
+  if ($value == "." || $value == "..") continue;
+  include("parser/$value");
+}

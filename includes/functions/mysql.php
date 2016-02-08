@@ -8,7 +8,7 @@
   if (!$_SESSION['setup'])
     $db = connect();
 
-  function execute($sql, $args) {
+  function execute($sql, $args = array()) {
       //$db = connect();
       global $db;
       try {
@@ -20,7 +20,7 @@
       return null;
   }
 
-  function executeResult($sql, $args) {
+  function executeResult($sql, $args = array()) {
     //$db = connect();
     global $db;
     try {
@@ -33,7 +33,7 @@
     return $response;
   }
 
-  function executeResults($sql, $args) {
+  function executeResults($sql, $args = array()) {
     //$db = connect();
     global $db;
     try {
