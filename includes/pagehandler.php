@@ -6,7 +6,7 @@ if (!$_SESSION['setup']) {
       header('Location: /login');
       exit();
     }
-    $PAGE = "../themes/$theme/start.phtml";
+    $PAGE = "../public_html/themes/$theme/start.phtml";
   } else if ($URL_SPLIT[0] == "json") {
     if ($URL_SPLIT[1] == "forumslist" || $URL_SPLIT[1] == "forumlist" || $URL_SPLIT[1] == "forumslist.json" || $URL_SPLIT[1] == "forumlist.json") {
       $forums = executeResults("SELECT * FROM `nf_forums`", array());
@@ -47,8 +47,22 @@ if (!$_SESSION['setup']) {
         }
       }
     }*/
-    if (file_exists("../themes/$theme/$URL")) {
-      $PAGE = "../themes/$theme/$URL.phtml";
+    if ($URL_SPLIT[0] == "forum") {
+      if (file_exists("../public_html/themes/$theme/forum.phtml")) {
+        $PAGE = "../public_html/themes/$theme/forum.phtml";
+      }
+    } else if ($URL_SPLIT[0] == "topic") {
+      if (file_exists("../public_html/themes/$theme/topic.phtml")) {
+        $PAGE = "../public_html/themes/$theme/topic.phtml";
+      }
+    } else if ($URL_SPLIT[0] == "post") {
+      if (file_exists("../public_html/themes/$theme/post.phtml")) {
+        $PAGE = "../public_html/themes/$theme/post.phtml";
+      }
+    } else {
+      if (file_exists("../public_html/themes/$theme/$URL")) {
+        $PAGE = "../public_html/themes/$theme/$URL.phtml";
+      }
     }
     if ($PAGE == "") {
       $PAGE = "../includes/pages/404.php";

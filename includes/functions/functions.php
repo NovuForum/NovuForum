@@ -41,12 +41,10 @@ function removeNumbers($data) {
 function parseVariables($data) {
   if (strpos($data, "<FORUMLIST>") !== false) {
     include("../includes/parser/forumlist.parser.php");
-    $data = str_replace("<FORUMLIST>", $parser, $data);
-    $_SESSION['debug_parser_b'] = "tru3";
-    $_SESSION['debug_parser'] = $data;
-    return $data;
-  } else {
-    $_SESSION['debug_parser_b'] = "fals3";
-    return $data;
+    return str_replace("<FORUMLIST>", $parser['forumlist'], $data);
+  }
+  if (strpos($data, "<TOPICLIST>") !== false) {
+    include("../includes/parser/topiclist.parser.php");
+    return str_replace("<TOPICLIST>", $parser['topiclist'], $data);
   }
 }

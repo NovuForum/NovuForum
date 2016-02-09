@@ -25,12 +25,10 @@ if (!$textonly) {
     <?php } ?>
 <?php
 if (isset($theme)) {
-  if (dir_exists("../themes/$theme/") && dir_exists("../themes/$theme/css/")) {
-    foreach (getdir("../themes/$theme/css/") as $value) {
+  if (dir_exists("themes/$theme/") && dir_exists("themes/$theme/css/")) {
+    foreach (getdir("themes/$theme/css/") as $value) {
 ?>
-    <style>
-<?= file_get_contents("../themes/$theme/css/$value") ?>
-    </style>
+    <link rel="stylesheet" type="text/css" href="/themes/<?= $theme ?>/css/<?= $value ?>">
 <?php
     }
   }
