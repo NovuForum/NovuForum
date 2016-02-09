@@ -20,7 +20,9 @@ if (!$textonly) {
     <title>NovuForum</title>
     <!-- GLOBAL CSS -->
     <link href="/css/global.css" rel="stylesheet">
+    <?php if ($URL_SPLIT[0] == "admin") { ?>
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <?php } ?>
 <?php
 if (isset($theme)) {
   if (dir_exists("../themes/$theme/") && dir_exists("../themes/$theme/css/")) {
@@ -34,16 +36,17 @@ if (isset($theme)) {
   }
 }
 ?>
-<!-- <?= $PAGE ?> | <?= getcwd() ?> | <?= $URL ?>-->
-<!-- <?= $parser ?> -->
-<!-- <?= $_SESSION['debug_parser'] ?> -->
-<!-- <?= $_SESSION['debug_parser_b'] ?>-->
+<!-- <?= $PAGE ?> | <?= getcwd() ?> | /<?= $URL ?> -->
   </head>
   <body>
+    <div class="main-container">
 <?= parseVariables(file_get_contents($PAGE)); ?>
+    </div>
     <!-- JS -->
     <script src="/js/jquery.js"></script>
+    <?php if ($URL_SPLIT[0] == "admin") { ?>
     <script src="/js/bootstrap.js"></script>
+    <?php } ?>
     <!--<script src="/js/smartforumsview.js"></script> My Cool Test Thingy (TODO) -->
   </body>
 </html>
